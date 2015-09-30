@@ -97,10 +97,11 @@ class exports.VideoPlayer extends Layer
       @_currentlyPlaying = false
       @videoLayer.player.pause()
       @playButton.animateStop()
-      @playButton.opacity = 1
-      for layer in @_controlsArray
-        layer.animateStop()
-        layer.opacity = 1
+      if @_shyControls
+        @playButton.opacity = 1
+        for layer in @_controlsArray
+          layer.animateStop()
+          layer.opacity = 1
     @videoLayer.video = options.video
 
     # default time text styles

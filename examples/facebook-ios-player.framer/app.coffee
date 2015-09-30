@@ -66,6 +66,8 @@ bars = new Bars
 bars.maxX = video.maxX - 10
 bars.maxY = video.maxY - 10
 bars.opacity = .7
+video.on "video:ended", ->
+	bars.opacity = 0
 
 # transition from feed to detail view
 toDetailView = ->
