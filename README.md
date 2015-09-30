@@ -81,6 +81,55 @@ You can also tell the play/pause button to hide and show itself, which is a stan
 
 ### The progress bar
 
+The VideoPlayer module makes it simple to add a progress bar that reflects the video's progress and allows you to scrub and seek through the video. Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek.
+
+```coffeescript
+  video.showProgressBar = true
+```
+
+After you've created a progress bar, you'll have access to `video.progressBar` which is an instance of Framer's [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent). You can of course set the dimensions and position of the progress bar:
+
+```coffeescript
+  video.progressBar.width = 340
+  video.progressBar.height = 10
+  video.progressBar.midX = Screen.width/2
+  video.progressBar.y = 220
+```
+
+And you can also customize the appearance of the progress bar just as you would a [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent):
+
+```coffeescript
+  video.progressBar.knobSize = 22
+  video.progressBar.borderRadius = 0
+  video.progressBar.knob.shadowColor = null
+  video.progressBar.backgroundColor = "#eee"
+  video.progressBar.fill.backgroundColor = "#333"
+```
+
 ### Timestamps
 
-### More
+
+### The `<video>` element
+
+The VideoPlayer component gives shorthand access to the [HTML5 <video> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) that plays the video through `video.player`. So you can use any of the properties, methods and events of the HTML5 media element itself: see (this overview)[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement] for the full breakdown.
+
+### Autoplay and muting
+
+If you want the video to automatically play, you can pass in `autoplay` as an option when you instantiate a new VideoPlayer. And if you want the video to play with sound off, similarly pass in `muted` as an option.
+
+```coffeescript
+  video = new VideoPlayer
+    video: "path/to/video.mov"
+    fullscreen: true
+    autoplay: true
+    muted: true
+```
+
+Note that on iOS devices, the muted attribute is ignored on videos since they respect the device's volume control.
+
+If you want to modify either `autoplay` or `muted` after creating a new VideoPlayer, do it through `video.player`:
+
+```coffeescript
+  video.player.autoplay = true
+  video.player.muted = false
+```
