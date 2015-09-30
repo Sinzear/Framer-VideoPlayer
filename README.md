@@ -50,3 +50,37 @@ video = new VideoPlayer
   video: "path/to/video.mov"
   fullscreen: true
 ```
+
+### The play/pause button
+
+By default the VideoPlayer module will toggle between playing and paused states if you click or tap anywhere on the video.
+
+When instantiated, the VideoPlayer module will also create a button that toggles between playing and pausing the video. It will look for two images for the two states of this button, `images/play.png` and `images/pause.png`.
+
+If these images don't exist, the button will effectively be invisible. You can also change these images:
+
+```coffeescript
+  video.playButtonImage = "path/to/anotherplaybutton.png"
+  video.pauseButtonImage = "path/to/anotherpausebutton.png"
+```
+
+By default this button is 80x80 and centered on the video. You can customize the button's appearance and position, since it's just a Framer layer:
+
+```coffeescript
+  video.playButton.width = 40
+  video.playButton.height = 40
+  video.playButton.x = 50
+  video.playButton.centerY(100)
+```
+
+You can also tell the play/pause button to hide and show itself, which is a standard behavior for buttons overlaid on video players. The button will fade out or in over two seconds.
+
+```coffeescript
+  video.shyPlayButton = true
+```
+
+### The progress bar
+
+### Timestamps
+
+### More
