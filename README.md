@@ -111,7 +111,9 @@ And you can also customize the appearance of the progress bar just as you would 
 
 ### The `<video>` element
 
-The VideoPlayer component gives shorthand access to the [HTML5 <video> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) that plays the video through `video.player`. So you can use any of the properties, methods and events of the HTML5 media element itself: see (this overview)[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement] for the full breakdown.
+The VideoPlayer component gives shorthand access to the [HTML5 <video> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) that plays the video through `video.player`.
+
+So you can use any of the properties, methods and events of the HTML5 media element itself: see (this overview)[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement] for the full breakdown.
 
 ### Autoplay and muting
 
@@ -132,4 +134,28 @@ If you want to modify either `autoplay` or `muted` after creating a new VideoPla
 ```coffeescript
   video.player.autoplay = true
   video.player.muted = false
+```
+
+### Events
+
+The VideoPlayer module emits a couple of custom events that you can listen for - play/pause button presses, and the status of the video itself.
+
+Say you added an "HD" button and want to hide it when the play button is tapped, and show it again when the pause button is tapped:
+
+```coffeescript
+  video.on "controls:play", ->
+    # hide it
+  video.on "controls:pause", ->
+    # show it again
+```
+
+You could also listen for the actual play and pause status of the video itself, as well as for when the video ends:
+
+```coffeescript
+  video.on "video:play", ->
+    # ooh moving pictures
+  video.on "video:pause", ->
+    # they are paused
+  video.on "video:ended", ->
+    # aww, it's over
 ```
