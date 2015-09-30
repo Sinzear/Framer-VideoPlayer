@@ -53,9 +53,7 @@ video = new VideoPlayer
 
 ## The play/pause button
 
-By default the VideoPlayer module will toggle between playing and paused states if you click or tap anywhere on the video.
-
-When instantiated, the VideoPlayer module will also create a button that toggles between playing and pausing the video. It will look for two images for the two states of this button, `images/play.png` and `images/pause.png`.
+When instantiated, the VideoPlayer module will create a button that toggles between playing and pausing the video. It will look for two images for the two states of this button, `images/play.png` and `images/pause.png`.
 
 If these images don't exist, the button will effectively be invisible. You can also change these images:
 
@@ -73,11 +71,15 @@ By default this button is 80x80 and centered on the video. You can customize the
   video.playButton.centerY(100)
 ```
 
-You can also tell the play/pause button to hide and show itself, which is a standard behavior for buttons overlaid on video players. The button will fade out or in over two seconds.
+By default the VideoPlayer module will toggle between playing and paused states if you click or tap anywhere on the video. If you don't want that, and you _just_ want the play button itself to control the video, set the `constrainToButton` option to `true` when you create an instance of the VideoPlayer module:
 
 ```coffeescript
-  video.shyPlayButton = true
+video = new Video
+  video: "path/to/video.mov"
+  constrainToButton: true
+  # etc
 ```
+
 
 ## The progress bar
 
@@ -149,6 +151,21 @@ The `video.timeStyle` property is a CSS string that will customize the appearanc
 ```coffeescript
 video.timeStyle = { "font-size": "20px", "color": "#fff" }
 ```
+
+## Shyness
+
+It's common for video controls to fade out after a second or two, and fade back in when the video is acted upon. You can enable this behavior on the play button with:
+
+```coffeescript
+  video.shyPlayButton = true
+```
+
+And on the rest of the controls - the progress bar and any visible timestamps - with:
+
+```coffeescript
+  video.shyControls = true
+```
+
 
 ## The `<video>` element
 
