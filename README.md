@@ -16,15 +16,15 @@ Major thanks to [Benjamin Den Boer](https://github.com/benjaminnathan). This mod
 
 ## Examples
 
-#### Basic video player prototype
+#### [Basic video player prototype](http://share.framerjs.com/lrh9kyuq39lr/)
 
 Demonstrates the default video player with standard controls.
 
-#### YouTube iOS app player prototype
+#### [YouTube iOS app player prototype](http://share.framerjs.com/3fh1jvmlr4oq/)
 
 Demonstrates a video player with some customization and "shy controls."
 
-#### Facebook iOS app player prototype
+#### [Facebook iOS app player prototype](http://share.framerjs.com/37vpv2pvnvfs/)
 
 Demonstrates a super-customized video player with a lot of bells and whistles.
 
