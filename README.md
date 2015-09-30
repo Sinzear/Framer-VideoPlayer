@@ -4,7 +4,17 @@ A [Framer](http://framerjs.com) module that makes it simple to drop in a video p
 
 Major thanks to [Benjamin Den Boer](https://github.com/benjaminnathan). This module is based on his [AudioPlayer module](https://github.com/benjaminnathan/Framer-AudioPlayer) and started as a fork of that module; it uses a lot of the same conventions and contains a lot of his original code. And it seeks to solve a very similar problem: to make it easier to prototype using media.
 
-# Examples
+## Installation
+
+1. Grab `videoplayer.coffee` from this repo's `/modules` directory
+2. Put it into your Framer Studio project's  `/modules` directory. 
+3. Then, in your Framer prototype, require the module with this line:
+
+```coffeescript
+{VideoPlayer} = require "videoplayer"
+```
+
+## Examples
 
 #### Basic video player prototype
 
@@ -18,19 +28,9 @@ Demonstrates a video player with some customization and "shy controls."
 
 Demonstrates a super-customized video player with a lot of bells and whistles.
 
-# Usage
+## Usage
 
-## Including the module
-
-1. Grab `videoplayer.coffee` from this repo's `/modules` directory
-2. Put it into your Framer Studio project's  `/modules` directory. 
-3. Then, in your Framer prototype, require the module with this line:
-
-```coffeescript
-{VideoPlayer} = require "videoplayer"
-```
-
-## Creating a basic player
+### Creating a basic player
 
 Simply put, the VideoPlayer module creates an instance of Framer's own [VideoLayer](http://framerjs.com/docs/#videolayer.videolayer) and gives it superpowers.
 
@@ -51,7 +51,9 @@ video = new VideoPlayer
   fullscreen: true
 ```
 
-## The play/pause button
+---
+
+### The play/pause button
 
 When instantiated, the VideoPlayer module will create a button that toggles between playing and pausing the video. It will look for two images for the two states of this button, `images/play.png` and `images/pause.png`.
 
@@ -79,9 +81,9 @@ video = new Video
   constrainToButton: true
   # etc
 ```
+---
 
-
-## The progress bar
+### The progress bar
 
 The VideoPlayer module makes it simple to add a progress bar that reflects the video's progress and allows you to scrub and seek through the video. Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek.
 
@@ -108,7 +110,9 @@ And you can also customize the appearance of the progress bar just as you would 
   video.progressBar.fill.backgroundColor = "#333"
 ```
 
-## Timestamps
+---
+
+### Timestamps
 
 There are three different timestamps you can choose to show. Time elapsed and time left will update dynamically based on the video progress. Total time is a static value, the length of the entire video.
 
@@ -152,7 +156,9 @@ The `video.timeStyle` property is a CSS string that will customize the appearanc
 video.timeStyle = { "font-size": "20px", "color": "#fff" }
 ```
 
-## Shyness
+---
+
+### Shyness
 
 It's common for video controls to fade out after a second or two, and fade back in when the video is acted upon. You can enable this behavior on the play button with:
 
@@ -166,14 +172,17 @@ And on the rest of the controls - the progress bar and any visible timestamps - 
   video.shyControls = true
 ```
 
+---
 
-## The `<video>` element
+### The `<video>` element
 
 The VideoPlayer component gives shorthand access to the [HTML5 <video> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) that plays the video through `video.player`.
 
-So you can use any of the properties, methods and events of the HTML5 media element itself: see (this overview)[https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement] for the full breakdown.
+So you can use any of the properties, methods and events of the HTML5 media element itself: see [this overview](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement) for the full breakdown.
 
-## Autoplay and muting
+---
+
+### Autoplay and muting
 
 If you want the video to automatically play, you can pass in `autoplay` as an option when you instantiate a new VideoPlayer. And if you want the video to play with sound off, similarly pass in `muted` as an option.
 
@@ -194,7 +203,9 @@ If you want to modify either `autoplay` or `muted` after creating a new VideoPla
   video.player.muted = false
 ```
 
-## Events
+---
+
+### Events
 
 The VideoPlayer module emits a couple of custom events that you can listen for - play/pause button presses, and the status of the video itself.
 
