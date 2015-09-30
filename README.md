@@ -160,13 +160,13 @@ video.timeStyle = { "font-size": "20px", "color": "#fff" }
 
 ### Shyness
 
-It's common for video controls to fade out after a second or two, and fade back in when the video is acted upon. You can enable this behavior on the play button with:
+It's common for video controls to fade out after a second or two, and fade back in when the video is acted upon. The VideoPlayer module can show and hide the button and controls for you, fading over two seconds. You can enable this behavior on the play button with:
 
 ```coffeescript
   video.shyPlayButton = true
 ```
 
-And on the rest of the controls - the progress bar and any visible timestamps - with:
+You can also enable this behavior on the rest of the controls - the progress bar and any visible timestamps - with:
 
 ```coffeescript
   video.shyControls = true
