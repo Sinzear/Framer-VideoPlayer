@@ -28,7 +28,7 @@ Demonstrates a video player with some customization and "shy controls."
 
 #### [Facebook iOS app player prototype](http://share.framerjs.com/37vpv2pvnvfs/)
 
-Demonstrates a super-customized video player with a lot of bells and whistles.
+Demonstrates a fairly customized video player with some bells and whistles.
 
 ![Examples](https://raw.githubusercontent.com/stakes/Framer-VideoPlayer/master/exampleImage.jpg)
 
@@ -38,9 +38,9 @@ Demonstrates a super-customized video player with a lot of bells and whistles.
 
 ### Creating a basic player
 
-Simply put, the VideoPlayer module creates an instance of Framer's own [VideoLayer](http://framerjs.com/docs/#videolayer.videolayer) and gives it superpowers.
+Simply put, the VideoPlayer module is a superlayer that wraps up Framer's own [VideoLayer](http://framerjs.com/docs/#videolayer.videolayer) with some extra functionality and controls that you might want when prototyping with video.
 
-To create a player with explicit dimensions, all you need to do is:
+The simplest way to create a VideoPlayer instance is:
 
 ```coffeescript
 video = new VideoPlayer
@@ -49,7 +49,7 @@ video = new VideoPlayer
   video: "path/to/video.mov"
 ```
 
-It's even easier to create a player that expands to Screen.width and Screen.height with:
+And actually, it's just as easy to create a player that fits perfectly to Screen.width and Screen.height:
 
 ```coffeescript
 video = new VideoPlayer
