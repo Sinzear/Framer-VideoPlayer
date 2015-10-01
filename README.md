@@ -14,6 +14,8 @@ Major thanks to [Benjamin Den Boer](https://github.com/benjaminnathan). This mod
 {VideoPlayer} = require "videoplayer"
 ```
 
+---
+
 ## Examples
 
 #### [Basic video player prototype](http://share.framerjs.com/lrh9kyuq39lr/)
@@ -27,6 +29,10 @@ Demonstrates a video player with some customization and "shy controls."
 #### [Facebook iOS app player prototype](http://share.framerjs.com/37vpv2pvnvfs/)
 
 Demonstrates a super-customized video player with a lot of bells and whistles.
+
+![Examples](https://raw.githubusercontent.com/stakes/Framer-VideoPlayer/master/exampleImage.jpg)
+
+---
 
 ## Usage
 
@@ -50,7 +56,6 @@ video = new VideoPlayer
   video: "path/to/video.mov"
   fullscreen: true
 ```
-
 ---
 
 ### The play/pause button
