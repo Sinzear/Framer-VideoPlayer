@@ -65,17 +65,17 @@ When instantiated, the VideoPlayer module will create a button that toggles betw
 If these images don't exist, the button will effectively be invisible. You can also change these images:
 
 ```coffeescript
-  video.playButtonImage = "path/to/anotherplaybutton.png"
-  video.pauseButtonImage = "path/to/anotherpausebutton.png"
+video.playButtonImage = "path/to/anotherplaybutton.png"
+video.pauseButtonImage = "path/to/anotherpausebutton.png"
 ```
 
 By default this button is 80x80 and centered on the video. You can customize the button's appearance and position, since it's just a Framer layer:
 
 ```coffeescript
-  video.playButton.width = 40
-  video.playButton.height = 40
-  video.playButton.x = 50
-  video.playButton.centerY(100)
+video.playButton.width = 40
+video.playButton.height = 40
+video.playButton.x = 50
+video.playButton.centerY(100)
 ```
 
 By default the VideoPlayer module will toggle between playing and paused states if you click or tap anywhere on the video. If you don't want that, and you _just_ want the play button itself to control the video, set the `constrainToButton` option to `true` when you create an instance of the VideoPlayer module:
@@ -95,26 +95,26 @@ The VideoPlayer module makes it simple to add a progress bar that reflects the v
 Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek. That said, right now the scrubbing works great in Framer Studio but less so in the browser or on the device.
 
 ```coffeescript
-  video.showProgressBar = true
+video.showProgressBar = true
 ```
 
 After you've created a progress bar, you'll have access to `video.progressBar` which is an instance of Framer's [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent). You can of course set the dimensions and position of the progress bar:
 
 ```coffeescript
-  video.progressBar.width = 340
-  video.progressBar.height = 10
-  video.progressBar.midX = Screen.width/2
-  video.progressBar.y = 220
+video.progressBar.width = 340
+video.progressBar.height = 10
+video.progressBar.midX = Screen.width/2
+video.progressBar.y = 220
 ```
 
 And you can also customize the appearance of the progress bar just as you would a [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent):
 
 ```coffeescript
-  video.progressBar.knobSize = 22
-  video.progressBar.borderRadius = 0
-  video.progressBar.knob.shadowColor = null
-  video.progressBar.backgroundColor = "#eee"
-  video.progressBar.fill.backgroundColor = "#333"
+video.progressBar.knobSize = 22
+video.progressBar.borderRadius = 0
+video.progressBar.knob.shadowColor = null
+video.progressBar.backgroundColor = "#eee"
+video.progressBar.fill.backgroundColor = "#333"
 ```
 
 ---
@@ -123,16 +123,16 @@ And you can also customize the appearance of the progress bar just as you would 
 
 There are three different timestamps you can choose to show. Time elapsed and time left will update dynamically based on the video progress. Total time is a static value, the length of the entire video.
 
-Usually you'll want either time left or total time, along with the time elapsed. But if you want all three, the world is yours.
+Usually you'll want to display either time left or total time, along with the time elapsed. But I mean if you want all three, you do you, I won't judge.
 
 #### Time elapsed
 
 Create, show and position a timestamp that updates with the time elapsed as the video plays:
 
 ```coffeescript
-  timeElapsed = video.showTimeElapsed
-  timeElapsed.x = 100
-  timeElapsed.centerY(100)
+timeElapsed = video.showTimeElapsed
+timeElapsed.x = 100
+timeElapsed.centerY(100)
 ```
 
 #### Time left
@@ -140,9 +140,9 @@ Create, show and position a timestamp that updates with the time elapsed as the 
 Create, show and position a timestamp that updates with the time left in the video:
 
 ```coffeescript
-  timeLeft = video.showTimeLeft
-  timeTotal.maxX = 650
-  timeLeft.centerY(100)
+timeLeft = video.showTimeLeft
+timeTotal.maxX = 650
+timeLeft.centerY(100)
 ```
 
 #### Total time
@@ -150,9 +150,9 @@ Create, show and position a timestamp that updates with the time left in the vid
 Create, show and position a static timestamp with the total duration of the video:
 
 ```coffeescript
-  timeTotal = video.showTimeTotal
-  timeTotal.maxX = 650
-  timeTotal.centerY(100)
+timeTotal = video.showTimeTotal
+timeTotal.maxX = 650
+timeTotal.centerY(100)
 ```
 
 #### Customizing timestamp appearance
@@ -170,13 +170,13 @@ video.timeStyle = { "font-size": "20px", "color": "#fff" }
 It's common for video controls to fade out after a second or two, and fade back in when the video is acted upon. The VideoPlayer module can show and hide the button and controls for you, fading over two seconds. You can enable this behavior on the play button with:
 
 ```coffeescript
-  video.shyPlayButton = true
+video.shyPlayButton = true
 ```
 
 You can also enable this behavior on the rest of the controls - the progress bar and any visible timestamps - with:
 
 ```coffeescript
-  video.shyControls = true
+video.shyControls = true
 ```
 
 ---
@@ -190,7 +190,7 @@ So you can use any of the properties, methods and events of the HTML5 media elem
 For example, want the video to loop? Easy:
 
 ```coffeescript
-  video.player.loop = true
+video.player.loop = true
 ```
 
 ---
@@ -200,11 +200,11 @@ For example, want the video to loop? Easy:
 If you want the video to automatically play, you can pass in `autoplay` as an option when you instantiate a new VideoPlayer. And if you want the video to play with sound off, similarly pass in `muted` as an option.
 
 ```coffeescript
-  video = new VideoPlayer
-    video: "path/to/video.mov"
-    fullscreen: true
-    autoplay: true
-    muted: true
+video = new VideoPlayer
+  video: "path/to/video.mov"
+  fullscreen: true
+  autoplay: true
+  muted: true
 ```
 
 Note that on iOS devices, the muted attribute is ignored on videos since they respect the device's volume control.
@@ -212,8 +212,8 @@ Note that on iOS devices, the muted attribute is ignored on videos since they re
 If you want to modify either `autoplay` or `muted` after creating a new VideoPlayer, do it through `video.player`:
 
 ```coffeescript
-  video.player.autoplay = true
-  video.player.muted = false
+video.player.autoplay = true
+video.player.muted = false
 ```
 
 ---
@@ -225,21 +225,21 @@ The VideoPlayer module emits a couple of custom events that you can listen for -
 Say you added an "HD" button and want to hide it when the play button is tapped, and show it again when the pause button is tapped:
 
 ```coffeescript
-  video.on "controls:play", ->
-    # hide it
-  video.on "controls:pause", ->
-    # show it again
+video.on "controls:play", ->
+  # hide it
+video.on "controls:pause", ->
+  # show it again
 ```
 
 You could also listen for the actual play and pause status of the video itself, as well as for when the video ends:
 
 ```coffeescript
-  video.on "video:play", ->
-    # ooh, moving pictures
-  video.on "video:pause", ->
-    # aww, they froze
-  video.on "video:ended", ->
-    # sad, it's over
+video.on "video:play", ->
+  # ooh, moving pictures
+video.on "video:pause", ->
+  # aww, they froze
+video.on "video:ended", ->
+  # sad, it's over
 ```
 
 These are just for convenience; they're the same as wrapping `video.player` and listening for the `"play"`, `"pause"` and `"ended"` events.
