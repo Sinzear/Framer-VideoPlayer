@@ -90,7 +90,9 @@ video = new Video
 
 ### The progress bar
 
-The VideoPlayer module makes it simple to add a progress bar that reflects the video's progress and allows you to scrub and seek through the video. Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek.
+The VideoPlayer module makes it simple to add a progress bar that reflects the video's progress and allows you to scrub and seek through the video. 
+
+Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek. That said, right now the scrubbing works great in Framer Studio but less so in the browser or on the device.
 
 ```coffeescript
   video.showProgressBar = true
@@ -184,6 +186,12 @@ You can also enable this behavior on the rest of the controls - the progress bar
 The VideoPlayer component gives shorthand access to the [HTML5 <video> element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) that plays the video through `video.player`.
 
 So you can use any of the properties, methods and events of the HTML5 media element itself: see [this overview](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement) for the full breakdown.
+
+For example, want the video to loop? Easy:
+
+```coffeescript
+  video.player.loop = true
+```
 
 ---
 
