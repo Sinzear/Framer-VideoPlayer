@@ -131,7 +131,7 @@ Create, show and position a timestamp that updates with the time elapsed as the 
 
 ```coffeescript
 video.showTimeElapsed = true
-timeElapsed = video.currentTime
+timeElapsed = video.timeElapsed
 timeElapsed.x = 100
 timeElapsed.centerY(100)
 ```
