@@ -130,7 +130,8 @@ Usually you'll want to display either time left or total time, along with the ti
 Create, show and position a timestamp that updates with the time elapsed as the video plays:
 
 ```coffeescript
-timeElapsed = video.showTimeElapsed
+video.showTimeElapsed = true
+timeElapsed = video.currentTime
 timeElapsed.x = 100
 timeElapsed.centerY(100)
 ```
@@ -140,8 +141,9 @@ timeElapsed.centerY(100)
 Create, show and position a timestamp that updates with the time left in the video:
 
 ```coffeescript
-timeLeft = video.showTimeLeft
-timeTotal.maxX = 650
+video.showTimeLeft = true 
+timeLeft = video.timeLeft
+timeLeft.maxX = 650
 timeLeft.centerY(100)
 ```
 
@@ -150,7 +152,8 @@ timeLeft.centerY(100)
 Create, show and position a static timestamp with the total duration of the video:
 
 ```coffeescript
-timeTotal = video.showTimeTotal
+video.showTimeTotal = true
+timeTotal = video.timeTotal
 timeTotal.maxX = 650
 timeTotal.centerY(100)
 ```
