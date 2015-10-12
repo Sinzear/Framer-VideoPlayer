@@ -95,7 +95,7 @@ The VideoPlayer module makes it simple to add a progress bar that reflects the v
 Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek. That said, right now the scrubbing works great in Framer Studio but less so in the browser or on the device.
 
 ```coffeescript
-video.showProgressBar = true
+video.showProgress = true
 ```
 
 After you've created a progress bar, you'll have access to `video.progressBar` which is an instance of Framer's [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent). You can of course set the dimensions and position of the progress bar:
