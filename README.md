@@ -95,7 +95,7 @@ The VideoPlayer module makes it simple to add a progress bar that reflects the v
 Dragging the progress bar when the video is playing should scrub the video, and dragging when it's paused should seek. That said, right now the scrubbing works great in Framer Studio but less so in the browser or on the device.
 
 ```coffeescript
-video.showProgressBar = true
+video.showProgress = true
 ```
 
 After you've created a progress bar, you'll have access to `video.progressBar` which is an instance of Framer's [SliderComponent](http://framerjs.com/docs/#slider.slidercomponent). You can of course set the dimensions and position of the progress bar:
@@ -130,7 +130,8 @@ Usually you'll want to display either time left or total time, along with the ti
 Create, show and position a timestamp that updates with the time elapsed as the video plays:
 
 ```coffeescript
-timeElapsed = video.showTimeElapsed
+video.showTimeElapsed = true
+timeElapsed = video.timeElapsed
 timeElapsed.x = 100
 timeElapsed.centerY(100)
 ```
@@ -140,8 +141,9 @@ timeElapsed.centerY(100)
 Create, show and position a timestamp that updates with the time left in the video:
 
 ```coffeescript
-timeLeft = video.showTimeLeft
-timeTotal.maxX = 650
+video.showTimeLeft = true 
+timeLeft = video.timeLeft
+timeLeft.maxX = 650
 timeLeft.centerY(100)
 ```
 
@@ -150,7 +152,8 @@ timeLeft.centerY(100)
 Create, show and position a static timestamp with the total duration of the video:
 
 ```coffeescript
-timeTotal = video.showTimeTotal
+video.showTimeTotal = true
+timeTotal = video.timeTotal
 timeTotal.maxX = 650
 timeTotal.centerY(100)
 ```

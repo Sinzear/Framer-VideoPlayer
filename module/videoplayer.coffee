@@ -39,6 +39,8 @@ class exports.VideoPlayer extends Layer
     super
       width: options.width
       height: options.height
+      x: options.x
+      y: options.y
       backgroundColor: null
 
     # create the videolayer
@@ -84,7 +86,7 @@ class exports.VideoPlayer extends Layer
         for layer in @_controlsArray
           layer.animateStop()
           layer.opacity = 1
-        
+
     # event listening on the videoLayer
     Events.wrap(@videoLayer.player).on "pause", =>
       @emit "video:pause"
@@ -144,11 +146,11 @@ class exports.VideoPlayer extends Layer
     get: -> @_showTimeTotal
     set: (showTimeTotal) -> @setTimeTotal(showTimeTotal)
 
-  @define "shyPlayButton", 
+  @define "shyPlayButton",
     get: -> @_shyPlayButton
     set: (shyPlayButton) -> @setShyPlayButton(shyPlayButton)
 
-  @define "shyControls", 
+  @define "shyControls",
     get: -> @_shyControls
     set: (shyControls) -> @setShyControls(shyControls)
 
@@ -218,7 +220,7 @@ class exports.VideoPlayer extends Layer
         properties:
           opacity: 0
         time: 2
-    
+
   # show and increment elapsed time
   setTimeElapsed: (showTimeElapsed) ->
     @_showTimeElapsed = showTimeElapsed
